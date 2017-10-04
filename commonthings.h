@@ -5,7 +5,7 @@
 #include <QByteArray>
 #include <QVariant>
 #include <QSqlDatabase>
-#include "../anLogger/anlogger.h"
+#include "anLogger/anlogger.h"
 
 inline QByteArray &operator <<(QByteArray &QBArr, const quint8 Data)
 {
@@ -35,7 +35,7 @@ inline QByteArray &operator <<(QByteArray &QBArr, const QByteArray &Data)
 }
 
 template <typename TN>
-inline QHash<TN, QString> &SwapKeyValOnOneToOneQHash(const QHash<QString, TN> &AQHashKeyValSet)
+inline QHash<TN, QString> SwapKeyValOnOneToOneQHash(const QHash<QString, TN> &AQHashKeyValSet)
 {
     QHash<TN, QString> tmp;
     QString tmp2 = "";
@@ -71,7 +71,7 @@ inline quint8 XORofAllBytesInQByteArr(const QByteArray &QBArr)
 /// \return QByteArray contains a hex number
 ///         representing an integer number encoded by Ascii code
 ///
-inline const QByteArray IntStr2QBArr0Pad(const quint32 Num, const quint8 SizeInByte)
+inline QByteArray IntStr2QBArr0Pad(const quint32 Num, const quint8 SizeInByte)
 {
     QString QStrTmp = QString::number(Num);
     return QStrTmp.prepend(QString("").fill('0',SizeInByte-QStrTmp.size())).toLocal8Bit();

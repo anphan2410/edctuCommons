@@ -1,4 +1,4 @@
-#include "commonthings.h"
+#include "edctuCommons/commonthings.h"
 
 const QString piLocalDBWorkerObjName = QStringLiteral("pilambdaReturnWorker");
 const QString UHV2WorkerObjName = QStringLiteral("UHV2Worker");
